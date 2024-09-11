@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 const Estimates = () => {
 
   const [userFormState, setFormState] = useState({
@@ -8,9 +7,6 @@ const Estimates = () => {
     completionTime: "",
     startDate: "",
     manHours: "",
-
-
-
   });
 
   const handleChange = (event) => {
@@ -23,53 +19,26 @@ const Estimates = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { location, journalEntry, startTripDate, endTripDate } =
-        userFormState;
-
-      console.log(dreamTrip);
-      if (dreamTrip == true) {
-        console.log(dreamTrip);
-        await addDreamTrip({
-          variables: { location, journalEntry, username },
-        });
-      } else {
-        await addTrip({
-          variables: {
-            location,
-            journalEntry,
-            startTripDate,
-            endTripDate,
-            username,
+      const response = await fetch('http://localhost:3001/api/projects', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
           },
-        });
-      }
-
-      setFormState({
-        location: "",
-        journalEntry: "",
-        startTripDate: new Date(),
-        endTripDate: new Date(),
+          body: JSON.stringify(userFormState),
       });
-      setDreamTrip(false); // Reset dream trip checkbox
-
-      window.location.reload();
+      console.log(response)
+    //  window.location.reload();
     } catch (e) {
       console.error(e);
     }
   };
 
-  const handleDreamTripChange = () => {
-    setDreamTrip(!dreamTrip);
-    if (!dreamTrip) {
-      setFormState({
-        ...userFormState,
-        startTripDate: null,
-        endTripDate: null,
-      });
-    }
-  };
+  const govtBid = () => {
+    console.log("gov bid checked")
+  }
+
+
 
   return (
     <section id="estimates">
@@ -114,7 +83,7 @@ const Estimates = () => {
           <input
             type="checkbox"
             checked={govtBid}
-            onChange={handle}
+            onChange={handleChange}
           />
           Government bidding contract
         </label>
@@ -127,7 +96,7 @@ const Estimates = () => {
   );
 };
 
-}
+
 
 
 export default Estimates;
