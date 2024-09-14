@@ -7,7 +7,7 @@ const {
 
 
 
-//'api/project'
+//'api/projects'
 
 // router.route('/').post(createAdminUser).put(authMiddleware, saveBook);
 // route.route('/').get(getEstimate)
