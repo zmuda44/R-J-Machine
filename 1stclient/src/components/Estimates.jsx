@@ -22,7 +22,7 @@ const Estimates = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/projects', {
+      const response = await fetch('http://localhost:10000/api/projects', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

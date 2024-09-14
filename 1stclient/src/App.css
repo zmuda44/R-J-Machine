@@ -1,0 +1,44 @@
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Begin header section */
+
+header {
+  margin-bottom: 20px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header ul {
+  display: flex;
+  text-decoration: none;
+}
+
+header ul li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Begin about us section */
+
+#about-us .container {
+  display: flex;
+  gap: 20px;
+}
+
+#about-us .left {
+  width: 30%;
+  background-color: red;
+}
+
+#about-us .left {
+  width: 70%;
+}
+
