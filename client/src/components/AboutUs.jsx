@@ -1,13 +1,18 @@
 const AboutUs = () => {
   return (
     <section id="about-us">
+        <h1>Custom Fabrication, Custom Parts and Custom Project</h1>
+        <h2>Specializing in burners</h2>
     <div className="container">
+
       <div className="left">
-        <h3>left side of About us. will put pic</h3>
+        <img src="public/cnc machinery.webp" />
       </div>
       <div className="right">
-        <h3>About Us</h3>
-        <p>We are a family-owned, veteran-run CNC machining and miscellaneous fabrication job shop that specializes in making custom parts and supplying light fabrication products for all types of industry. Established in 1983, the JD Machine Parts team is comprised of people who are solution-driven, quality-minded, and price-conscious. No matter the need- small quantities, repairs, emergency jobs, production runs, sequentially-released batches, design-assist- we are here to help. We make parts to precise customer specifications, price them affordably and deliver on time or sooner.  We work for you!</p>
+        <h2>About Us</h2>
+        <p>In the world of a small business, you must remain competitive. 
+        Our philosophy is that we will not stop working hard. Working hard to compete on price, quality and customer service. 
+        We are a family-owned, machining and miscellaneous fabrication job shop, specializing in custom projects, parts and burners. </p>
       </div>
     </div>
 
