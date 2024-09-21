@@ -117,13 +117,19 @@ const Estimates = () => {
 
   
 
-          <div>
+          <div className="gov-checkbox">
             <input
               type="checkbox"
               checked={govtBid}
               onChange={handleChange}
             />
-            Government bidding contract
+           <p>Government bidding contract</p> 
+           <input
+              type="checkbox"
+              checked={govtBid}
+              onChange={handleChange}
+            />
+          <p>Response for Proposal</p> 
           </div>
 
         <button type="submit">Submit</button>
