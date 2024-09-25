@@ -14,7 +14,7 @@ const caseStudyArray = [
   },
   {
   title: "Case Study 3",
-  img: "my image",
+  img: "public/bunson burner tables.jpg",
   description: "this is case study 3"
   }
 ]
@@ -44,13 +44,17 @@ const showNextBlock = () => {
     <section id="case-studies">
     <div className="container">
 
+
       {caseStudyArray.map((study) => (
+       
           <div className="card" style={{ translate: `${-100 * blockIndex}%` }}>        
           <h2>{study.title}</h2>
           <img src={study.img}/>
           <p>{study.description}</p>
         </div>
+
       ))}
+
     </div>
 
 

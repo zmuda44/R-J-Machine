@@ -151,18 +151,42 @@ justify-content: center;
 #testimonials .container {
   position: relative;
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 400px;
+ 
 }
 
-#testimonials .block {
+#testimonials button {
 
-  background-color: red;
-  margin: 2px;
-  width: 1500px;
-  height: 700px;
 }
 
 #testimonials .block-cont {
-  position: absolute;
-  display: flex;
+ display: flex;
+ overflow: hidden;
 }
+
+#testimonials .block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+  align-items: center;
+
+}
+
+#testimonials img {
+  width: 200px;
+}
+
+#testimonials p {
+  width: 50%;
+  text-align: center;
+
+}
+
+
+
+
