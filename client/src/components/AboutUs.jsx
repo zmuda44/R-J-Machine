@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div className="container">
 
       <div className="left">
-        <img src="public/cnc machinery.webp" />
+        <img src="/cnc machinery.webp" />
       </div>
       <div className="right">
         <h2>About Us</h2>

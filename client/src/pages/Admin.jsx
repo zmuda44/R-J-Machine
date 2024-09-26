@@ -1,11 +1,46 @@
 import "../admin.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Admin = () => {
   const [userFormState, setFormState] = useState({
     email: "",
     password: "",
+    mainAdmin: "",
+
   });
+
+  const userDataLength = Object.keys(userFormState).length;
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const response = await fetch('/api/admin', {
+          headers: {
+            'Content-Type': 'application/json',
+          }          
+        })
+
+
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
+
+        const user = await response.json();
+        console.log(user)
+        setFormState({
+          email: user.email || "",
+          password: user.password || "",
+          mainAdmin: user.mainAdmin || "",
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getUserData();
+  }, []);
+
+  console.log(userFormState)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -69,7 +104,7 @@ const Admin = () => {
        </div>
 
        <div className="admin-content">
-        <h1>Welcome {email}</h1>
+        <h1>Welcome </h1>
 
 
        </div>

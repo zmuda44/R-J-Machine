@@ -4,19 +4,19 @@ const testimonialsArray = [
   {
   id: 1,
   name: "Greg Bailey",
-  img: "public/heashot random.jpg",
+  img: "/heashot random.jpg",
   text: "Great product and great service."
   },
   {
   id: 2,
   name: "Floyd Richards",
-  img: "public/heashot random.jpg",
+  img: "/heashot random.jpg",
   text: "asdfsadfasdfasdfsdffsdfa sdfsdfsadfsdsadfasdfasdfa sdfsdfasdfasdfasdfsadfasdfasdf"
   },
   {
   id: 3,
   name: "Andrew McDonald",
-  img: "public/heashot random.jpg",
+  img: "/heashot random.jpg",
   text: "We had a project that we needed done quickly. We called around to many different shops but couldn't find a product we liked on time."
   },
 ]
