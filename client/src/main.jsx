@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import Services from './pages/Services'
 import ContactUs from './pages/ContactUs'
+import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
+        element: <AdminLogin />
+      },
+      {
+        path: 'admin/:user',
         element: <Admin />
       },
       {

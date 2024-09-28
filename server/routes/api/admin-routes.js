@@ -27,17 +27,16 @@ router.get('/', async (req, res) => {
 
 
 
-router.get('/:email', async (req, res) => {
+router.get('/:user', async (req, res) => {
+  console.log(req.params.user)
 
     try {
-      const user = await Admin.findOne({ email: req.params.email });
+      const user = await Admin.findOne({ userName: req.params.user });
   
       // if (!user) {
       //   return res.status(400).json({ message: 'Something is wrong!' });
       // }
 
-      console.log(user)
-  
       res.json({ user });
 
 
