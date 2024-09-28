@@ -3,7 +3,9 @@ const { Project } = require('../models');
 module.exports = {
 
   async createEstimate({ body }, res) {
-    console.log(body)
+    const submittedDate = Date.now()
+
+    console.log(submittedDate)
     const estimate = await Project.create(body);
   
     if (!estimate) {

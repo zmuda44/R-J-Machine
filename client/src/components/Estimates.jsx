@@ -6,9 +6,12 @@ const Estimates = () => {
 
   const [userFormState, setFormState] = useState({
     description: "",
-    completionTime: "",
+    completionTimeMonths: "",
+    completionTimeDays: "",
     startDate: "",
+    endDate: "",
     manHours: "",
+    // dateSubmitted: Date.now()
   });
 
   const handleChange = (event) => {
@@ -77,7 +80,7 @@ const Estimates = () => {
               placeholder="Days"
               name="completionTimeDays"
               type="text"
-              value={userFormState.completionTimeMonths}
+              value={userFormState.completionTimeDays}
               onChange={handleChange}
             />
           </div>
@@ -97,7 +100,7 @@ const Estimates = () => {
               placeholder="Target end date"
               name="endDate"
               type="text"
-              value={userFormState.startDate}
+              value={userFormState.endDate}
               onChange={handleChange}
             />
 

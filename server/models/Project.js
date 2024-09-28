@@ -17,14 +17,22 @@ const projectSchema = new Schema ({
   endDate: {
     type: Number,
   },
-  completionTime: {
+  completionTimeMonths: {
+    type: String,
+  },
+
+  completionTimeDays: {
     type: String,
   },
   manHours: {
     type: Number,
   },
-  inventory: {
+  inventoryUsed: {
     type: Number,
+  },
+  submissionDate: {
+    type: Date,
+    default: Date.now()
   }
 })
 
