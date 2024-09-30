@@ -48,21 +48,22 @@ const Project = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormState({
-      ...userFormState,
+    setProjectDisplayState({
+      ...projectDisplayState,
       [name]: value,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(projectDisplayState)
     try {
-      const response = await fetch('/api/projects', {
-          method: 'POST',
+      const response = await fetch(`/api/projects/${projectId}`, {
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(userFormState),
+          body: JSON.stringify(projectDisplayState),
       });
       console.log(response)
       setIsEditing(false);
@@ -99,7 +100,9 @@ const Project = () => {
           <button onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? 'Cancel Edit' : 'Edit Project'}
           </button>
-          <h1>{projectDisplayState.description}</h1>
+          <h3>Project Title: placeholder for title</h3>
+      
+          <p>Project Description: {projectDisplayState.description}</p>
           {isEditing && (
           <input className = "" 
           placeholder="New Description"
@@ -107,10 +110,11 @@ const Project = () => {
           type="text"
           value={projectDisplayState.description}
           onChange={handleChange}
+          onFocus={() => setProjectDisplayState({...projectDisplayState, description: ""})}
           />
           )}
-          <p>{projectDisplayState.submissionDate}</p>
-          <p>{projectDisplayState.manHours}</p>
+          <p>Project Submission Date: {projectDisplayState.submissionDate}</p>
+          <p>Project Man hours: {projectDisplayState.manHours}</p>
           {isEditing && (
           <input className = "" 
           placeholder="New man hours"
@@ -118,17 +122,19 @@ const Project = () => {
           type="text"
           value={projectDisplayState.manHours}
           onChange={handleChange}
+          onFocus={() => setProjectDisplayState({...projectDisplayState, manHours: ""})}
           />
           )}
-          <p>{projectDisplayState.startDate}</p>
+          <p>Project Start Date {projectDisplayState.startDate}</p>
           <input className = "" 
           placeholder="New Start Date"
           name="StartDate"
           type="text"
           value={projectDisplayState.startDate}
           onChange={handleChange}
+          onFocus={() => setProjectDisplayState({...projectDisplayState, startDate: ""})}
           />
-          <button id="edit-project">Submit</button>
+          <button id="edit-project" onClick={handleFormSubmit}>Submit</button>
           <button id="edit-project">Delete</button>
         </div>
       </div>

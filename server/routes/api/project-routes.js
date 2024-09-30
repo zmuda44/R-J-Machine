@@ -2,7 +2,8 @@ const router = require('express').Router();
 const {
   createEstimate,
   getProjects,
-  getProject
+  getProject,
+  updateProject
 
 } = require('../../controllers/project-controller');
 
@@ -12,7 +13,10 @@ const {
 
 // router.route('/').post(createAdminUser).put(authMiddleware, saveBook);
 router.route('/').get(getProjects)
-router.route('/:projectId').get(getProject)
+
 router.route('/').post(createEstimate)
+
+router.route('/:projectId').get(getProject)
+router.route('/:projectId').put(updateProject)
 
 module.exports = router;

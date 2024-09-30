@@ -30,9 +30,21 @@ module.exports = {
 
 
   async getProject (req, res) {
-    console.log(req.params.projectId)
+
 
     const project = await Project.findOne({ _id: req.params.projectId})
+
+    
+    res.json(project)
+    
+  },
+
+  async updateProject (req, res) {
+    console.log(req.body)
+
+    const project = await Project.findOneAndUpdate(
+      { _id: req.params.projectId},
+      { $set: req.body })
     
     res.json(project)
     
