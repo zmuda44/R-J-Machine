@@ -20,7 +20,21 @@ module.exports = {
 
 
   async getProjects (req, res) {
+
     const projects = await Project.find()
+    
+    res.json(projects)
+    
+  },
+
+
+
+  async getProject (req, res) {
+    console.log(req.params.projectId)
+
+    const project = await Project.findOne({ _id: req.params.projectId})
+    
+    res.json(project)
     
   }
 

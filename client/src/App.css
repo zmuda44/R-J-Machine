@@ -187,6 +187,50 @@ justify-content: center;
 
 }
 
+/* Admin Section */
+
+#users {
+  text-align: center;
+}
+
+#projects {
+background-color: yellow;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+
+#projects .list-items {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: green;
+  justify-items: center; /* Centers items horizontally in their grid cells */
+}
+
+#projects li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 40%;
+  margin: 20px;
+  background-color: aqua;
+
+
+}
+
+#projects li:last-child {
+  align-self: left;
+}
+
+
+
+#projects-cont li {
+  margin: 10px;
+}
+
 
 
 

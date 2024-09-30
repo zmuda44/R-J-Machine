@@ -17,7 +17,7 @@ module.exports = {
 
 module.exports = {
   async getAdminUser(req, res) {
-    console.log(req)
+
     const user = await Admin.findAll({});
   
     if (!user) {

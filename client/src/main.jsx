@@ -12,6 +12,7 @@ import Services from './pages/Services'
 import ContactUs from './pages/ContactUs'
 import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
+import IndividualProject from './pages/Project'
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'admin/:user',
         element: <Admin />
+      },
+      {
+        path: 'projects/:projectId',
+        element: <IndividualProject />
       },
       {
         path: '/contact-us',

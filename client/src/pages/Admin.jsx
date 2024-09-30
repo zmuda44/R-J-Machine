@@ -8,13 +8,17 @@ const Admin = () => {
  
 
 
-  const [userDisplayState, setUserDisplayState] = useState([]);
-
-  const [projectsDisplayState, setProjectsDisplayState] = useState({
-    description: "",
-    manHours: "",
-    startDate: "",
+  const [userDisplayState, setUserDisplayState] = useState({
+    userName: ""
   });
+
+  const [projectsDisplayState, setProjectsDisplayState] = useState([])
+  //   description: "",
+  //   manHours: "",
+  //   startDate: "",
+  // });
+
+  const [updateProjectDisplayState, setUpdateProjectDisplayState] = useState()
 
 
 
@@ -74,6 +78,8 @@ const Admin = () => {
       
 
       setProjectsDisplayState(projectData);
+
+      
     } catch (err) {
       console.error(err);
     }
@@ -82,67 +88,42 @@ const Admin = () => {
       getProjectsData();
   }, []);
 
-
-
-
-
-
+  function showIndividualProject (projectId) {
+    window.location.replace(`/projects/${projectId}`);
+  }
 
   return (
     <section id="admin">
       <div className="container">
-      <div className="content">
-        <h1>Welcome User</h1>
-        <p>if user mainAdmin then they can manage users. if main email they can handle mainAdmin <a href="/">here</a> to return to our webpage.</p>
-        {/* <form onSubmit={handleFormSubmit}>
+        <div id="users">
+          <h1>Welcome {userDisplayState.userName}</h1>
+          <p>if user mainAdmin then they can manage users. if main email they can handle mainAdmin <a href="/">here</a> to return to our webpage.</p>
+        </div>
+        <div id="projects">
+          <h1>Projects </h1>
+          {projectsDisplayState.length > 0 ? (
+    
+              <div className="list-items">
+              
+                {projectsDisplayState.map((project) => (
+                  <li key={project._id} onClick={() => showIndividualProject(project._id)}>
+                 
+                    <h4>{new Date(project.submissionDate).toLocaleDateString()}</h4>
+                    <h4>{project.submissionDate}</h4>
 
-          <div className="" id="admin-login">
-            <p>Enter your email</p>
-            <input            
-              className="form-input"
-              placeholder="email"
-              name="email"
-              type="text"
-              value={userFormState.email}
-              onChange={handleChange}
-            />   
+    
 
-              <input
-              className="form-input"
-              placeholder="password"
-              name="password"
-              type="text"
-              value={userFormState.password}
-              onChange={handleChange}
-            />      
-          </div>        
-
-        <button type="submit">Submit</button>
-        </form> */}
-       </div>
-
-       <div className="users">
-        <h1>{userDisplayState.userName}</h1>
-
-
-       </div>
-       <div className="users">
-        <h1>Projects </h1>
-        {projectsDisplayState.length > 0 ? (
-            <ul>
-              {projectsDisplayState.map((project, index) => (
-                <li key={index}>
-                  <p>Description: {project.description}</p>
-                  <p>Man Hours: {project.manHours}</p>
-                  <p>Start Date: {project.startDate}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No projects available.</p>
-          )}
-
-       </div>
+                    <p>Description: {project.description}</p>
+                    <p>Man Hours: {project.manHours}</p>
+                    <p>Start Date: {project.startDate}</p>
+                    
+                  </li>
+                ))}
+              </div>
+            ) : (
+              <p>No projects available.</p>
+            )}
+        </div>
 
 
 
@@ -154,6 +135,18 @@ const Admin = () => {
 
 
 export default Admin
+
+{/* <button onclick={window.location.replace(`/projects/${userFormState.userName}`);}>edit project</button> */}
+
+{/* <label>Enter your email</label>
+<input            
+  className="form-input"
+  placeholder="email"
+  name="email"
+  type="text"
+  value={}
+  onChange={}
+/>  */}
 
 
   // const handleChange = (event) => {
@@ -182,3 +175,30 @@ export default Admin
   //     console.error(e);
   //   }
   // };
+
+
+   {/* <form onSubmit={handleFormSubmit}>
+
+          <div className="" id="admin-login">
+            <p>Enter your email</p>
+            <input            
+              className="form-input"
+              placeholder="email"
+              name="email"
+              type="text"
+              value={userFormState.email}
+              onChange={handleChange}
+            />   
+
+              <input
+              className="form-input"
+              placeholder="password"
+              name="password"
+              type="text"
+              value={userFormState.password}
+              onChange={handleChange}
+            />      
+          </div>        
+
+        <button type="submit">Submit</button>
+        </form> */}
