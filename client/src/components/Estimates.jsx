@@ -45,6 +45,8 @@ const Estimates = () => {
 
 
 
+
+
   return (
     <section id="estimates">
       <div className="container">
@@ -63,26 +65,34 @@ const Estimates = () => {
               onChange={handleChange}
             />         
           </div>
-
           <div className="form-flex" id="completion-time">
-            <p>Estimated Time of completion</p>
-            <input
-              className="form-input"
-              placeholder="Months"
-              name="completionTimeMonths"
-              type="text"
-              value={userFormState.completionTimeMonths}
-              onChange={handleChange}
-            />
+            <p>Estimated Time of Completion</p>
+
+            <div className="form-group">
  
+              <input
+                className="form-input"
+                name="completionTimeMonths"
+                placeholder="Months"
+                type="number"
+                min="1"
+                max="12"
+                value={userFormState.completionTimeMonths}   
+                onChange={handleChange}      
+              />
+
+            <label>Completion Days</label>
             <input
               className="form-input"
               placeholder="Days"
               name="completionTimeDays"
-              type="text"
+              type="number"
+                min="1"
+                max="12"
               value={userFormState.completionTimeDays}
               onChange={handleChange}
             />
+            </div>
           </div>
 
           <div className="form-flex" id="target-date">      
@@ -91,7 +101,7 @@ const Estimates = () => {
               className="form-input"
               placeholder="Target start date"
               name="startDate"
-              type="text"
+              type="date"
               value={userFormState.startDate}
               onChange={handleChange}
             />
@@ -99,7 +109,7 @@ const Estimates = () => {
               className="form-input"
               placeholder="Target end date"
               name="endDate"
-              type="text"
+              type="date"
               value={userFormState.endDate}
               onChange={handleChange}
             />
