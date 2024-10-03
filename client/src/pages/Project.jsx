@@ -9,6 +9,8 @@ const Project = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [originalState, setOriginalState] = useState({});
 
+  console.log(originalState)
+
   const [projectDisplayState, setProjectDisplayState] = useState({
     description: "",
     submissionDate: "",
@@ -50,15 +52,15 @@ const Project = () => {
       getProjectData();
   }, []);
 
-  const handleEdit = () => {
+  const handleFormEdit = (editingState) => {
     setIsEditing(true);
-    setOriginalState({ ...projectDisplayState }); // Store original values when editing starts
+    setOriginalState({ ...projectDisplayState }); 
   };
 
-  const handleCancelEdit = () => {
-    setIsEditing(false);
-    setProjectDisplayState({ ...originalState }); // Revert back to original values
-  };
+  // const handleCancelEdit = () => {
+  //   setIsEditing(false);
+  //   setProjectDisplayState({ ...originalState }); // Revert back to original values
+  // };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -69,14 +71,14 @@ const Project = () => {
   };
 
   const handleBlur = (event) => {
-    const { name, value } = event.target;
-    if (value === "") {
-      // Revert to original value if input is empty
-      setProjectDisplayState((prevState) => ({
-        ...prevState,
-        [name]: originalState[name],
-      }));
-    }
+    // const { name, value } = event.target;
+    // if (projectDisplayState !== originalState) {
+    //   // Revert to original value if input is empty
+    //   setProjectDisplayState((prevState) => ({
+    //     ...prevState,
+    //     [name]: originalState[name],
+    //   }));
+    // }
   };
 
   const handleFormSubmit = async (event) => {
@@ -90,7 +92,7 @@ const Project = () => {
           },
           body: JSON.stringify(projectDisplayState),
       });
-      console.log(response)
+      window.location.reload()
       setIsEditing(false);
     } catch (e) {
       console.error(e);
@@ -122,20 +124,19 @@ const Project = () => {
     <section id="admin">
       <div className="container">
         <div id="project">
-          <button onClick={() => setIsEditing(!isEditing)}>
+          <button onClick={() => handleFormEdit(!isEditing)}>
             {isEditing ? 'Cancel Edit' : 'Edit Project'}
           </button>
           <h3>Project Submission Date: {projectDisplayState.submissionDate}</h3>
           <div className="form-group">
-            <h3>Project Title: {projectDisplayState.title ? projectDisplayState.title : "N/A"}</h3>
+            <h3>Project Title: {originalState.title ? originalState.title : projectDisplayState.title ? projectDisplayState.title : "N/A"}</h3>
             {isEditing && (
             <input className = "" 
             placeholder="New Title"
             name="title"
             type="text"
-            value={projectDisplayState.title || ""}
-            onChange={handleChange}
-            onFocus={() => setProjectDisplayState({...projectDisplayState, title: ""})}
+            value={projectDisplayState.title}
+            onChange={handleChange}            
             onBlur={handleBlur}
 
             />
@@ -143,7 +144,7 @@ const Project = () => {
           </div>
 
           <div className="form-group">
-            <p>Project Description: {projectDisplayState.description}</p>
+            <p>Project Description: {originalState.description ? originalState.description : projectDisplayState.description ? projectDisplayState.description : "N/A"}</p>
             {isEditing && (
             <input className = "" 
             placeholder="New Description"
@@ -151,7 +152,7 @@ const Project = () => {
             type="text"
             value={projectDisplayState.description}
             onChange={handleChange}
-            onFocus={() => setProjectDisplayState({...projectDisplayState, description: ""})}
+           
             onBlur={handleBlur} 
 
             />
@@ -217,7 +218,7 @@ const Project = () => {
             type="text"
             value={projectDisplayState.assignedPersonnel}
             onChange={handleChange}
-            onFocus={() => setProjectDisplayState({...projectDisplayState, assignedPersonnel: ""})}
+           
             
             onBlur={handleBlur}
             />
@@ -301,3 +302,5 @@ export default Project
 //   </section>
 // );
 // };
+
+// onFocus={() => setProjectDisplayState({...projectDisplayState, title: ""})}
