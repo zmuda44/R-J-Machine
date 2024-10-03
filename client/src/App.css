@@ -13,11 +13,14 @@
 
 header {
   margin-bottom: 20px;
+  background-image: linear-gradient(rgba(148, 148, 148, 0.87), rgba(33, 33, 33, 0.875)), url('./public/types-of-gears.webp');
+  color: white;
 }
 
 header .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header ul {
@@ -32,35 +35,52 @@ header ul li {
   cursor: pointer;
 }
 
+header a {
+  text-decoration: none;
+  color: white;
+}
+
 /* Begin about us section */
 
-#about-us > h1,
-#about-us > h2, 
-#about-us > h3 {
+#about-us {
+  
+}
+
+#about-us  > h1,
+#about-us  > h2, 
+#about-us  > h3 {
   text-align: center;
 }
 
+#about-us .about-us-content {
+  margin-top: 20px;
+  background-image: url('./cnc machinery.webp');
+  background-size: cover;
+  padding: 20px;
+}
+
 #about-us .container {
-  margin-top: 50px;  
-  display: flex;
-  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.895);
+  margin: 50px;
+  height: 400px;  
+  border-radius: 20px;
+  padding: 10px;
 }
 
-#about-us .left {
-  width: 40%;
+#about-us .container h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-#about-us img {
-  width: 100%;
+#about-us .container p {
+  text-align: left;
+  margin-bottom: 10px;
 }
 
-#about-us .right {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  width: 60%;
-  justify-content: center;
-}
+
+
+
+
 
 
 /* Begin Estimate Section */
@@ -172,16 +192,24 @@ display: flex;
 
 /* Begin Case Studies Section */
 
+#case-studies {
+  margin: 20px 0;
+}
+
 #case-studies .container {
-  display: flex;
+  text-align: center;
+}
+
+#case-studies .case-study-cards {
   margin-top: 20px;
-  gap: 10px;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 #case-studies .card {
   width: 30%;
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
 }

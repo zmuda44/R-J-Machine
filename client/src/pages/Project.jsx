@@ -9,8 +9,6 @@ const Project = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [originalState, setOriginalState] = useState({});
 
-  console.log(originalState)
-
   const [projectDisplayState, setProjectDisplayState] = useState({
     description: "",
     submissionDate: "",
@@ -52,15 +50,18 @@ const Project = () => {
       getProjectData();
   }, []);
 
-  const handleFormEdit = (editingState) => {
-    setIsEditing(true);
-    setOriginalState({ ...projectDisplayState }); 
-  };
+  const handleFormEdit = () => {
+    if (isEditing) {
+      // Cancel edit and reset to original state
+      setProjectDisplayState(originalState);
+      setIsEditing(false);
+    } else {
+      // Enter edit mode and save current state
+      setOriginalState({ ...projectDisplayState });
+      setIsEditing(true);
+    }
+  };   
 
-  // const handleCancelEdit = () => {
-  //   setIsEditing(false);
-  //   setProjectDisplayState({ ...originalState }); // Revert back to original values
-  // };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -119,12 +120,14 @@ const Project = () => {
     }
   };
 
+  console.log(isEditing)
+  console.log(originalState)
 
   return (
     <section id="admin">
       <div className="container">
         <div id="project">
-          <button onClick={() => handleFormEdit(!isEditing)}>
+          <button onClick={() => handleFormEdit()}>
             {isEditing ? 'Cancel Edit' : 'Edit Project'}
           </button>
           <h3>Project Submission Date: {projectDisplayState.submissionDate}</h3>

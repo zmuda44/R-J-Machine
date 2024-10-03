@@ -194,7 +194,7 @@ const Estimates = () => {
             <div className="checkbox-group">
               <input
                 type="checkbox"
-                checked={govtBid}
+                // checked={govtBid}
                 onChange={handleChange}
               />
               <p>Government bidding contract</p> 
@@ -203,7 +203,7 @@ const Estimates = () => {
             <div className="checkbox-group">
               <input
                 type="checkbox"
-                checked={govtBid}
+                // checked={govtBid}
                 onChange={handleChange}
               />
               <p>Response for Proposal</p> 

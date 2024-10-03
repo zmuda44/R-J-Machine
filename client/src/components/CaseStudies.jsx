@@ -3,16 +3,19 @@ import { useState, useEffect, useRef } from 'react';
 
 const caseStudyArray = [
   {
+  id: 1,
   title: "Custom burner project",
   img: "/bunsen burner close.jpg",
   description: "The custom burner project was one of our favorites. Our local school needed 50 new bunson burners for their classrooms."
   },
   {
+  id: 2,
   title: "Fabricated Stairway rails",
   img: "/metal staircase.jpg",
   description: "A commercial flight of stairs, over 1,000 ft and 500 pieces."
   },
   {
+  id: 3,
   title: "Case Study 3",
   img: "/bunson burner tables.jpg",
   description: "this is case study 3"
@@ -43,17 +46,23 @@ const showNextBlock = () => {
 
     <section id="case-studies">
     <div className="container">
+    <h2>Case Studies</h2>
+    <p>See below for details on some of our favorite projects.</p>
 
-
+      <div className="case-study-cards">
       {caseStudyArray.map((study) => (
        
-          <div className="card" style={{ translate: `${-100 * blockIndex}%` }}>        
-          <h2>{study.title}</h2>
-          <img src={study.img}/>
-          <p>{study.description}</p>
-        </div>
+       <div key={study.id} className="card" style={{ translate: `${-100 * blockIndex}%` }}>        
+         <h2>{study.title}</h2>
+         <img src={study.img}/>
+         <p>{study.description}</p>
+       </div>
 
-      ))}
+     ))}
+
+
+
+      </div>
 
     </div>
 
