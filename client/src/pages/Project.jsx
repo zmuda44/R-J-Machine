@@ -1,4 +1,4 @@
-import "../admin.css"
+import "../project.css"
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
@@ -7,12 +7,14 @@ const Project = () => {
   const { projectId } = useParams();
 
   const [isEditing, setIsEditing] = useState(false);
+  const [originalState, setOriginalState] = useState({});
 
   const [projectDisplayState, setProjectDisplayState] = useState({
     description: "",
     submissionDate: "",
     manHours: "",
     startDate: "",
+    endDate: "",
   })
   
   useEffect(() => {
@@ -33,10 +35,12 @@ const Project = () => {
       
 
       setProjectDisplayState({
+        title: projectData.title || "",
         description: projectData.description || "",
         submissionDate: projectData.submissionDate || "",
         manHours: projectData.manHours || "",
         startDate: projectData.startDate || "",
+        endDate: projectData.endDate || "",
       });
     } catch (err) {
       console.error(err);
@@ -46,12 +50,33 @@ const Project = () => {
       getProjectData();
   }, []);
 
+  const handleEdit = () => {
+    setIsEditing(true);
+    setOriginalState({ ...projectDisplayState }); // Store original values when editing starts
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setProjectDisplayState({ ...originalState }); // Revert back to original values
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setProjectDisplayState({
       ...projectDisplayState,
       [name]: value,
     });
+  };
+
+  const handleBlur = (event) => {
+    const { name, value } = event.target;
+    if (value === "") {
+      // Revert to original value if input is empty
+      setProjectDisplayState((prevState) => ({
+        ...prevState,
+        [name]: originalState[name],
+      }));
+    }
   };
 
   const handleFormSubmit = async (event) => {
@@ -100,40 +125,135 @@ const Project = () => {
           <button onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? 'Cancel Edit' : 'Edit Project'}
           </button>
-          <h3>Project Title: placeholder for title</h3>
+          <h3>Project Submission Date: {projectDisplayState.submissionDate}</h3>
+          <div className="form-group">
+            <h3>Project Title: {projectDisplayState.title ? projectDisplayState.title : "N/A"}</h3>
+            {isEditing && (
+            <input className = "" 
+            placeholder="New Title"
+            name="title"
+            type="text"
+            value={projectDisplayState.title || ""}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, title: ""})}
+            onBlur={handleBlur}
+
+            />
+            )}
+          </div>
+
+          <div className="form-group">
+            <p>Project Description: {projectDisplayState.description}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="New Description"
+            name="description"
+            type="text"
+            value={projectDisplayState.description}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, description: ""})}
+            onBlur={handleBlur} 
+
+            />
+            )}
+          </div>
+
       
-          <p>Project Description: {projectDisplayState.description}</p>
-          {isEditing && (
-          <input className = "" 
-          placeholder="New Description"
-          name="description"
-          type="text"
-          value={projectDisplayState.description}
-          onChange={handleChange}
-          onFocus={() => setProjectDisplayState({...projectDisplayState, description: ""})}
-          />
-          )}
-          <p>Project Submission Date: {projectDisplayState.submissionDate}</p>
-          <p>Project Man hours: {projectDisplayState.manHours}</p>
-          {isEditing && (
-          <input className = "" 
-          placeholder="New man hours"
-          name="manHours"
-          type="text"
-          value={projectDisplayState.manHours}
-          onChange={handleChange}
-          onFocus={() => setProjectDisplayState({...projectDisplayState, manHours: ""})}
-          />
-          )}
-          <p>Project Start Date {projectDisplayState.startDate}</p>
-          <input className = "" 
-          placeholder="New Start Date"
-          name="StartDate"
-          type="text"
-          value={projectDisplayState.startDate}
-          onChange={handleChange}
-          onFocus={() => setProjectDisplayState({...projectDisplayState, startDate: ""})}
-          />
+
+          <div className="form-group">
+            <p>Project Man hours: {projectDisplayState.manHours}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="New man hours"
+            name="manHours"
+            type="text"
+            value={projectDisplayState.manHours}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, manHours: ""})}
+            onBlur={handleBlur}
+
+            />
+            )}
+          </div>
+
+          <div className="form-group">
+            <p>Project Start Date {projectDisplayState.startDate}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="New Start Date"
+            name="startDate"
+            type="text"
+            value={projectDisplayState.startDate}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, startDate: ""})}
+            
+            onBlur={handleBlur}
+            />
+            )}
+          </div> 
+
+          <div className="form-group">
+            <p>Project End Date {projectDisplayState.endDate}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="New Start Date"
+            name="endDate"
+            type="text"
+            value={projectDisplayState.endDate}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, endDate: ""})}
+            
+            onBlur={handleBlur}
+            />
+            )}
+          </div> 
+
+          <div className="form-group">
+            <p>Project Lead {projectDisplayState.assignedPersonnel}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="Project Lead"
+            name="assignedPersonnel"
+            type="text"
+            value={projectDisplayState.assignedPersonnel}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, assignedPersonnel: ""})}
+            
+            onBlur={handleBlur}
+            />
+            )}
+          </div> 
+
+          <div className="form-group">
+            <p>Original Estimate {projectDisplayState.origEstimate}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="Original Estimate"
+            name="origEstimate"
+            type="text"
+            value={projectDisplayState.origEstimate}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, origEstimate: ""})}
+            
+            onBlur={handleBlur}
+            />
+            )}
+          </div> 
+          <div className="form-group">
+            <p>Final Bid {projectDisplayState.finalBid}</p>
+            {isEditing && (
+            <input className = "" 
+            placeholder="Original Estimate"
+            name="finalBid"
+            type="text"
+            value={projectDisplayState.origEstimate}
+            onChange={handleChange}
+            onFocus={() => setProjectDisplayState({...projectDisplayState, finalBid: ""})}
+            onBlur={handleBlur}
+            />
+            )}
+          </div> 
+
           <button id="edit-project" onClick={handleFormSubmit}>Submit</button>
           <button id="edit-project">Delete</button>
         </div>
@@ -145,3 +265,39 @@ const Project = () => {
 
 
 export default Project
+
+
+
+// return (
+//   <section id="admin">
+//     <div className="container">
+//       <div id="project">
+//         <button onClick={isEditing ? handleCancelEdit : handleEdit}>
+//           {isEditing ? 'Cancel Edit' : 'Edit Project'}
+//         </button>
+//         <h3>Project Submission Date: {projectDisplayState.submissionDate}</h3>
+
+//         {['title', 'description', 'manHours', 'startDate', 'endDate', 'assignedPersonnel', 'origEstimate', 'finalBid'].map((field) => (
+//           <div className="form-group" key={field}>
+//             <p>{`Project ${field.charAt(0).toUpperCase() + field.slice(1)}: ${projectDisplayState[field]}`}</p>
+//             {isEditing && (
+//               <input
+//                 className=""
+//                 placeholder={`New ${field}`}
+//                 name={field}
+//                 type="text"
+//                 value={projectDisplayState[field]}
+//                 onChange={handleChange}
+//                 onBlur={handleBlur}
+//               />
+//             )}
+//           </div>
+//         ))}
+
+//         <button id="edit-project" onClick={handleFormSubmit}>Submit</button>
+//         <button id="edit-project" onClick={handleDelete}>Delete</button>
+//       </div>
+//     </div>
+//   </section>
+// );
+// };

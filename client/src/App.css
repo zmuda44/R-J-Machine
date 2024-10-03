@@ -69,55 +69,101 @@ header ul li {
   margin-top: 20px;
   color: white;
   text-align: center;
-  
+  box-shadow: 2px 2px 10px black;
+  padding: 10px 0; 
 }
 
 #estimates form {
   margin: auto;
   width: 80%;
+  text-align: left;
 }
+
 
 #estimates h4 {
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-#estimates .form-flex {
-  width: 80%;
-  margin: 40px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+#estimates form {
+  margin-top: 40px;
 }
 
-#estimates #description input {
+
+#estimates #description textarea  {
+  margin-top: 10px;
+  text-align: left;
+  vertical-align: top;
   height: 200px;
   width: 100%;
 }
 
-#estimates .form-flex p {
-  width: 50%;
+#estimates .form-flex {
+  width: 80%;
+  margin: 40px 0;
+  display: flex;
+  justify-content: left;
 }
 
-#estimates .form-flex input {
-  width: 30%;
-  height: 25px;
-  margin-left: 10px;
+#estimates .form-flex p {
+  width: 300px;
+  margin-right: 20px;
+}
+
+#estimates .form-flex input { 
+  width: 200px;
+  height: 30px; 
+  margin-right: 10px;
+}
+
+
+
+#estimates #contact-info  {
+ margin: 20px 0;
+}
+
+#estimates #contact-info p {
+  text-align: center;
+  margin-right: 20px;
+}
+
+#estimates #contact-info .form-group {
+  display: flex;
+  margin-top: 20px;
+}
+
+#estimates #contact-info .form-group p {
+  width: 300px;
+  text-align: left;
 }
 
 #estimates .gov-checkbox {
 display: flex;
-gap: 10px;
-margin: auto;
-background-color: black;
-justify-content: center;
+}
+
+#estimates .gov-checkbox .checkbox-group {
+  display: flex;
+  margin-right: 30px;
+}
+
+#estimates .gov-checkbox .checkbox-group p {
+  margin-left: 5px;
+}
+
+#estimates .button-container {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 #estimates button {
-  width: 100px;
-  height: 25px;
   text-align: center;
+  width: 100px; 
+  height: 40px; 
 }
+
+
 
 
 
@@ -187,49 +233,7 @@ justify-content: center;
 
 }
 
-/* Admin Section */
 
-#users {
-  text-align: center;
-}
-
-#projects {
-background-color: yellow;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-
-
-
-#projects .list-items {
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: green;
-  justify-items: center; /* Centers items horizontally in their grid cells */
-}
-
-#projects li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  width: 40%;
-  margin: 20px;
-  background-color: aqua;
-
-
-}
-
-#projects li:last-child {
-  align-self: left;
-}
-
-
-
-#projects-cont li {
-  margin: 10px;
-}
 
 /* Project Page */
 

@@ -1,3 +1,45 @@
-#admin {
-  color: red;
+/* Admin Section */
+
+#users h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#projects {
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+
+#projects .list-items {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center; /* Centers items horizontally in their grid cells */
+  
+}
+
+#projects li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 60%;
+  margin: 20px;
+  padding: 20px;
+  border: solid black;
+
+
+}
+
+#projects li:last-child {
+  align-self: left;
+}
+
+
+
+#projects-cont li {
+  margin: 10px;
 }

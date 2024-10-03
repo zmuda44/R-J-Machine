@@ -108,14 +108,14 @@ const Admin = () => {
                 {projectsDisplayState.map((project) => (
                   <li key={project._id} onClick={() => showIndividualProject(project._id)}>
                  
-                    <h4>{new Date(project.submissionDate).toLocaleDateString()}</h4>
-                    <h4>{project.submissionDate}</h4>
-
-    
-
+                    <h4>Submitted: {new Date(project.submissionDate).toLocaleDateString()}</h4>
+                    <h5>Title: {project.title ? project.title : 'N/A'}</h5>
+         
                     <p>Description: {project.description}</p>
+                    <p>Completion Time - Months: {project.completionTimeMonths} Days: {project.completionTimeDays}</p>
                     <p>Man Hours: {project.manHours}</p>
-                    <p>Start Date: {project.startDate}</p>
+                    <p>Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'N/A'}</p>
+                    <p>End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : 'N/A'}</p>
                     
                   </li>
                 ))}

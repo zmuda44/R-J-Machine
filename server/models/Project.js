@@ -9,30 +9,50 @@ const projectSchema = new Schema ({
     required: true,
   },
   startDate: {
-    type: Number,
+    type: Date,
   },
   endDate: {
-    type: Number,
+    type: Date,
   },
   completionTimeMonths: {
-    type: String,
-  },
-
-  completionTimeDays: {
-    type: String,
-  },
-  manHours: {
     type: Number,
   },
-  inventoryUsed: {
+  completionTimeDays: {
+    type: Number,
+  },
+  manHours: {
     type: Number,
   },
   submissionDate: {
     type: Date,
     default: Date.now()
+  },
+  customerName: {
+    type: String,    
+  },
+  customerEmail: {
+    type: String,
+  },
+  customerPhone: {
+    type: String,
+  },
+  assignedPersonnel: {
+    type: String,
+  },
+  originalEstimate: {
+    type: Number,
+  },
+  finalBid: {
+    type: Number,
   }
+
 })
 
 const Project = model('Project', projectSchema);
 
 module.exports = Project;
+
+
+// inventoryUsed: {
+//   type: Number,
+// },

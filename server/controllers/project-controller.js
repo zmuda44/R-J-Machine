@@ -4,8 +4,26 @@ module.exports = {
 
   async createEstimate({ body }, res) {
     const submittedDate = Date.now()
+    let startDate = ""
+    let endDate = ""    
 
-    console.log(submittedDate)
+    if (body.startDate) {
+    const startDateString = body.startDate;
+    startDate = new Date(startDateString);    
+    }
+
+    if (body.endDate) {
+      const endDateString = body.endDate; 
+      endDate = new Date(endDateString);  
+    }
+
+    const estimateData = {
+      ...body,
+      submittedDate,
+      startDate,
+      endDate,
+    };
+
     const estimate = await Project.create(body);
   
     if (!estimate) {
