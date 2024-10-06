@@ -223,22 +223,21 @@ display: flex;
 /* Begin testimonials section */
 
 #testimonials .container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
-  height: 400px;
+
  
 }
 
 #testimonials button {
+  height: 20px;
+}
 
+#testimonials .testimonial-cards {
+  display: flex;
+  align-items: center;
 }
 
 #testimonials .block-cont {
- display: flex;
- overflow: hidden;
+display: flex;
 }
 
 #testimonials .block {

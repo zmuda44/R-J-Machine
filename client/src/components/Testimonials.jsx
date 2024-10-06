@@ -66,7 +66,10 @@ console.log("clicked")
   return (
     <section id="testimonials">
     <div className="container">
-     <button id="left" onClick={showPrevBlock}>L</button>
+    <h1>Testimonials</h1>
+
+    <div className="testimonial-cards">
+    <button id="left" onClick={showPrevBlock}>{`<`}</button>
       <div className="block-cont">
       {testimonialsArray.map((testimonial) => (
         <TestimonialBlock 
@@ -80,7 +83,10 @@ console.log("clicked")
 
       </div>
 
-      <button id="R" onClick={showNextBlock}>R</button>
+      <button id="R" onClick={showNextBlock}>{`>`}</button>
+
+    </div>
+
 
     </div>
   

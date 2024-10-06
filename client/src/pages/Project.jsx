@@ -11,10 +11,14 @@ const Project = () => {
 
   const [projectDisplayState, setProjectDisplayState] = useState({
     description: "",
-    submissionDate: "",
-    manHours: "",
+    completionTimeMonths: "",
+    completionTimeDays: "",
     startDate: "",
     endDate: "",
+    manHours: "",
+    customerName: "",
+    customerEmail: "",
+    customerPhone: ""
   })
   
   useEffect(() => {
@@ -35,12 +39,15 @@ const Project = () => {
       
 
       setProjectDisplayState({
-        title: projectData.title || "",
         description: projectData.description || "",
-        submissionDate: projectData.submissionDate || "",
-        manHours: projectData.manHours || "",
+        completionTimeMonths: projectData.completionTimeMonths || "",
+        completionTimeDays: projectData.completionTimeDays || "",
         startDate: projectData.startDate || "",
         endDate: projectData.endDate || "",
+        manHours: projectData.manHours || "",
+        customerName: projectData.customerName || "",
+        customerEmail: projectData.customerEmail || "",
+        customerPhone: projectData.customerPhone || ""
       });
     } catch (err) {
       console.error(err);
@@ -165,12 +172,12 @@ const Project = () => {
       
 
           <div className="form-group">
-            <p>Project Man hours: {projectDisplayState.manHours}</p>
+            <p>Project Man hours: {originalState.manHours ? originalState.manHours : projectDisplayState.manHours ? projectDisplayState.manHours : "N/A"}</p>
             {isEditing && (
             <input className = "" 
             placeholder="New man hours"
             name="manHours"
-            type="text"
+            type="number"
             value={projectDisplayState.manHours}
             onChange={handleChange}
             onFocus={() => setProjectDisplayState({...projectDisplayState, manHours: ""})}
@@ -186,7 +193,7 @@ const Project = () => {
             <input className = "" 
             placeholder="New Start Date"
             name="startDate"
-            type="text"
+            type="date"
             value={projectDisplayState.startDate}
             onChange={handleChange}
             onFocus={() => setProjectDisplayState({...projectDisplayState, startDate: ""})}
@@ -200,9 +207,9 @@ const Project = () => {
             <p>Project End Date {projectDisplayState.endDate}</p>
             {isEditing && (
             <input className = "" 
-            placeholder="New Start Date"
+            placeholder="New End Date"
             name="endDate"
-            type="text"
+            type="date"
             value={projectDisplayState.endDate}
             onChange={handleChange}
             onFocus={() => setProjectDisplayState({...projectDisplayState, endDate: ""})}
@@ -211,6 +218,40 @@ const Project = () => {
             />
             )}
           </div> 
+
+          <div className="form-group">
+            <p>Completion Time - Months: {projectDisplayState.completionTimeMonths} Days: {projectDisplayState.completionTimeDays} </p>
+            {isEditing && (
+
+          <input
+                className="form-input"
+                name="completionTimeMonths"
+                placeholder="Months"
+                type="number"
+                min="1"
+                max="12"
+                value={projectDisplayState.completionTimeMonths}   
+                onChange={handleChange}      
+              />  
+          )}
+          </div>  
+
+          <div className="form-group">
+            <p>Completion Time - Months: {projectDisplayState.completionTimeDays} Days: {projectDisplayState.completionTimeDays} </p>
+            {isEditing && (
+
+          <input
+                className="form-input"
+                name="completionTimeDays"
+                placeholder="Days"
+                type="number"
+                min="1"
+                max="31"
+                value={projectDisplayState.completionTimeDays}   
+                onChange={handleChange}      
+              />  
+          )}
+          </div>        
 
           <div className="form-group">
             <p>Project Lead {projectDisplayState.assignedPersonnel}</p>

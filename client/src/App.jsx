@@ -2,7 +2,10 @@ import { useState } from 'react'
 
 import './App.css'
 import { Outlet } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -11,6 +14,7 @@ function App() {
     The website also has an admin section. To view admin section, click <a href="admin">here</a></p>
     <Navbar />
     <Outlet />
+    <Footer />
     </div>
   )
 }
