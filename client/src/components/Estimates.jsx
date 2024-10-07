@@ -70,7 +70,7 @@ const Estimates = () => {
   return (
     <section id="estimates">
       <div className="container">
-        <h4>Receive a fast and free estimate</h4>
+        <h2>Receive a fast and free estimate</h2>
         <p>Fill out the form below and we will get back to you within the next business day</p>
 
          <form onSubmit={handleFormSubmit}>

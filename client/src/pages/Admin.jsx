@@ -74,7 +74,7 @@ const Admin = () => {
       const projectData = await response.json()
      
 
-      console.log(projectData)
+      console.log(response)
       
 
       setProjectsDisplayState(projectData);

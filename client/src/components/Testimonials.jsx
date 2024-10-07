@@ -29,7 +29,7 @@ function TestimonialBlock ({ name, img, text, style }) {
 
     <div className="block" style={style} >  
       <img src={img}/>      
-      <h2>{name}</h2>            
+      <h3>{name}</h3>            
       <p>{text}</p>
     </div>
   )
@@ -66,7 +66,8 @@ console.log("clicked")
   return (
     <section id="testimonials">
     <div className="container">
-    <h1>Testimonials</h1>
+    <h2>Testimonials</h2>
+    <p>See what customers like you are saying about our products and service!</p>
 
     <div className="testimonial-cards">
     <button id="left" onClick={showPrevBlock}>{`<`}</button>

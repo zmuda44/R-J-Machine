@@ -39,6 +39,8 @@ module.exports = {
 
   async getProjects (req, res) {
 
+    console.log("path hit")
+
     const projects = await Project.find()
     
     res.json(projects)

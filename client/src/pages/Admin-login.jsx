@@ -78,18 +78,24 @@ const AdminLogin = () => {
         <h1>You have reached an Employees only admin page</h1>
         <p>Please note that this site is for employees only. Only authorized users may login.
         Please click <a href="/">here</a> to return to our webpage.</p>
-        <form onSubmit={handleFormSubmit}>
 
-          <div className="" id="admin-login">
+        <div className="form-section">
+          <h4>Employees with login credentials sign in below</h4>
+
+          <form onSubmit={handleFormSubmit}>
+            <div className="form-group">
             <label>Enter your email</label>
-            <input            
-              className="form-input"
-              placeholder="email"
-              name="email"
-              type="text"
-              value={userFormState.email}
-              onChange={handleChange}
-            />   
+              <input            
+                className="form-input"
+                placeholder="email"
+                name="email"
+                type="text"
+                value={userFormState.email}
+                onChange={handleChange}
+              /> 
+            </div>
+
+            <div className="form-group">
             <label>Enter your username</label>
             <input            
               className="form-input"
@@ -99,30 +105,39 @@ const AdminLogin = () => {
               value={userFormState.userName}
               onChange={handleChange}
             />   
+            </div>
 
+            <div className="form-group">
+            <label>Enter Password</label>
               <input
               className="form-input"
               placeholder="password"
               name="password"
-              type="text"
+              type="password"
               value={userFormState.password}
               onChange={handleChange}
-            />      
-          </div>        
-
-        <button type="submit">Submit</button>
-        </form>
-       </div>
-
-       <div className="admin-content">
-        <h1>Welcome </h1>
+            />  
+            </div>
+            <button>Submit</button>
+            </form>    
+        </div>        
 
 
-       </div>
 
 
 
       </div>
+
+      </div>
+
+   
+
+
+
+
+
+
+
 
     </section>
   )

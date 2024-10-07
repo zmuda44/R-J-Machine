@@ -42,9 +42,7 @@ header a {
 
 /* Begin about us section */
 
-#about-us {
-  
-}
+
 
 #about-us  > h1,
 #about-us  > h2, 
@@ -60,11 +58,25 @@ header a {
 }
 
 #about-us .container {
+  display: flex;
   background-color: rgba(255, 255, 255, 0.895);
-  margin: 50px;
-  height: 400px;  
+  margin: auto;
   border-radius: 20px;
-  padding: 10px;
+  padding: 30px;
+}
+
+#about-us .container .left {
+  width: 40%;
+
+}
+
+#about-us .container .right {
+  width: 60%;
+}
+
+#about-us .container .left img {
+  width: 90%;
+  border-radius: 10px;
 }
 
 #about-us .container h2 {
@@ -100,7 +112,7 @@ header a {
 }
 
 
-#estimates h4 {
+#estimates h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
@@ -194,10 +206,15 @@ display: flex;
 
 #case-studies {
   margin: 20px 0;
+
 }
 
 #case-studies .container {
   text-align: center;
+}
+
+#case-studies h2 {
+  font-size: 2rem;
 }
 
 #case-studies .case-study-cards {
@@ -212,6 +229,7 @@ display: flex;
   gap: 10px;
   flex-direction: column;
   align-items: center;
+  box-shadow: 5px 5px 5px;
 }
 
 #case-studies img {
@@ -222,22 +240,43 @@ display: flex;
 
 /* Begin testimonials section */
 
-#testimonials .container {
+#testimonials .container  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin: 10px auto;
+  background-color: blue; 
+  padding-top: 10px;
+}
 
- 
+#testimonials h2 {
+  text-align: center;
+}
+
+#testimonials .block-cont {
+
+}
+
+#testimonials .block h3 {
+  font-size: 1.5rem;
 }
 
 #testimonials button {
-  height: 20px;
+  width: 50px;
+  height: 50px;
 }
 
 #testimonials .testimonial-cards {
   display: flex;
+  width: 60%;
   align-items: center;
+  margin-top: 20px;
+
 }
 
 #testimonials .block-cont {
-display: flex;
+  display: flex;
 }
 
 #testimonials .block {
@@ -248,10 +287,12 @@ display: flex;
   flex-shrink: 0;
   align-items: center;
 
+
 }
 
 #testimonials img {
   width: 200px;
+  border-radius: 500px;
 }
 
 #testimonials p {
