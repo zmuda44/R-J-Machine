@@ -3,6 +3,9 @@ const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
+// const session = require('express-session');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -23,11 +23,11 @@ const testimonialsArray = [
 
 
 function TestimonialBlock ({ name, img, text, style }) {
-  console.log(img)
+  
   return (
    
 
-    <div className="block" style={style} >  
+    <div className="block" style={ style } >  
       <img src={img}/>      
       <h3>{name}</h3>            
       <p>{text}</p>
@@ -39,7 +39,7 @@ function TestimonialBlock ({ name, img, text, style }) {
 
 
 const Testimonials = () => {
-
+  
 
 
 const [blockIndex, setBlockIndex] = useState(0)
@@ -60,39 +60,41 @@ console.log("clicked")
   })
 }
 
+console.log(blockIndex)
 
-
-
-  return (
-    <section id="testimonials">
+return (
+  <section id="testimonials">
     <div className="container">
-    <h2>Testimonials</h2>
-    <p>See what customers like you are saying about our products and service!</p>
+      <h2>Testimonials</h2>
+      <p>See what customers like you are saying about our products and service!</p>
 
-    <div className="testimonial-cards">
-    <button id="left" onClick={showPrevBlock}>{`<`}</button>
-      <div className="block-cont">
-      {testimonialsArray.map((testimonial) => (
-        <TestimonialBlock 
-        key={testimonial.id}
-        name={testimonial.name}
-        img={testimonial.img}
-        text={testimonial.text}
-        style={{ translate: `${-100 * blockIndex}%` }}
-        />
-      ))}  
-
+      <div className="testimonial-cards">
+        <button id="left" onClick={showPrevBlock}>{`<`}</button>
+        <div className="block-cont">
+          <div
+            className="block-wrapper"
+            style={{
+              display: 'flex',
+              transform: `translateX(${-100 * blockIndex}%)`,
+              transition: 'transform 0.5s ease-in-out',
+            }}
+          >
+            {testimonialsArray.map((testimonial) => (
+              <TestimonialBlock
+                key={testimonial.id}
+                name={testimonial.name}
+                img={testimonial.img}
+                text={testimonial.text}
+                style={{ minWidth: '100%' }}
+              />
+            ))}
+          </div>
+        </div>
+        <button id="right" onClick={showNextBlock}>{`>`}</button>
       </div>
-
-      <button id="R" onClick={showNextBlock}>{`>`}</button>
-
     </div>
-
-
-    </div>
-  
-    </section>
-  )
+  </section>
+);
 }
 
 

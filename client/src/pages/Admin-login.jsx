@@ -1,14 +1,19 @@
 import "../admin.css"
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Route } from 'react-router-dom';
 
 const AdminLogin = () => {
   const [userFormState, setFormState] = useState({    
-    email: "",
+    // email: "",
     userName: "",
     password: "",
     // mainAdmin: "",
-
   });
+
+  const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
   // const userDataLength = Object.keys(userFormState).length;
 
@@ -41,8 +46,6 @@ const AdminLogin = () => {
   //   getUserData();
   // }, []);
 
-  console.log(userFormState)
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -56,17 +59,26 @@ const AdminLogin = () => {
 
     event.preventDefault();
     try {
-      const response = await fetch('/api/admin', {
+      const response = await fetch('/api/admin/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(userFormState),
       });
+
       console.log(response)
-     window.location.replace(`/admin/${userFormState.userName}`);
+      
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+        setErrorMessage("Incorrect username or password. Please try again.");
+      }
+
+      navigate(`/admin/${userFormState.userName}`, { state: { userName: userFormState.userName } });
+
     } catch (e) {
       console.error(e);
+      setErrorMessage("Incorrect username or password. Please try again.");
     }
   };
 
@@ -83,18 +95,6 @@ const AdminLogin = () => {
           <h4>Employees with login credentials sign in below</h4>
 
           <form onSubmit={handleFormSubmit}>
-            <div className="form-group">
-            <label>Enter your email</label>
-              <input            
-                className="form-input"
-                placeholder="email"
-                name="email"
-                type="text"
-                value={userFormState.email}
-                onChange={handleChange}
-              /> 
-            </div>
-
             <div className="form-group">
             <label>Enter your username</label>
             <input            
@@ -119,9 +119,12 @@ const AdminLogin = () => {
             />  
             </div>
             <button>Submit</button>
-            </form>    
+            </form> 
+               
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>        
 
+      {}
 
 
 

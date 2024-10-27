@@ -47,19 +47,66 @@ router.get('/:user', async (req, res) => {
   
 })
 
-router.post('/', async ({ body }, res) => {
+router.post('/login', async ({ body }, res) => {
 
-    const user = await Admin.create(body);
-  
-    if (!user) {
-      return res.status(400).json({ message: 'Something is wrong!' });
+  try {
+    const userName = body.userName;
+    const password = body.password;
+
+    const adminData = await Admin.findOne({ userName } );
+
+    if (!adminData) {
+          
+      res.status(400).json({ message: 'Incorrect username or password, please try again' });
+      return
+    }
+    const validPassword = await adminData.isCorrectPassword(password);
+
+    // const validPassword = password === "admin"  
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password, please try again' });
+      return;
     }
 
-    res.json({ user });
+    const responseData = {
+      id: adminData.id,
+      userName: adminData.userName,
+      // Include any other non-sensitive fields you want to return
+    };
+
+    res.send(validPassword)
+      res.status(204).end();   
+
+
+  } catch (error) {
+    console.error('Failed to login.', error);
+  }
 }),
 
+router.post('/', async ({ body }, res) => {
 
 
+try {
+  const { userName, email, password } = body;
+
+// Create the user with the provided username, email, and password
+  const admin = await Admin.create({ userName: userName, email: email, password: password });
+  // If user creation fails, throw an error
+  if (!admin) {
+    throw new Error('Something is wrong!');
+  }
+
+  res.send(admin)
+
+} catch (error) {
+  console.error(error);
+  // Return a specific error message in case of failure
+  throw new Error('Failed to create user');
+}
+}),
 
 
 module.exports = router;
