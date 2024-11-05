@@ -5,11 +5,17 @@ const Navbar = () => {
 
 
   return (
-    <div className="page-top">
+    // <div className="page-top">
       <header>
         <div className="container">
 
-          <a href="/"><img src="header logo.png" alt="logo"/></a>
+          <a href="/"><div className="header-link-cont">
+            <img id="background" src="header logo bg.png" alt="logo-background"/>            
+            <img src="header logo.png" alt="logo"/>
+            <img src="header gears.png" alt="logo gears"/>
+            
+          </div></a>
+
           <ul className="navbar">
           {window.location.pathname === '/' && (
               <>
@@ -25,7 +31,7 @@ const Navbar = () => {
       </header>
 
 
-    </div>
+    // </div>
 
   )
 }
