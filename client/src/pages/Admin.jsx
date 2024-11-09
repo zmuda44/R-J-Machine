@@ -23,7 +23,7 @@ const Admin = () => {
   useEffect(() => {
     const getProjectsData = async () => {
       try {
-      const response = await fetch(`/api/projects`, {
+      const response = await fetch(`/api/admin/projects`, {
         headers: {
           'Content-Type': 'application/json',
         }          
@@ -51,8 +51,6 @@ const Admin = () => {
 
   }
 
-  console.log(userDisplayState)
-
   return (
     <section id="admin">
       <div className="container">
@@ -67,7 +65,7 @@ const Admin = () => {
               {projectsDisplayState.length > 0 ? (
                 <div className="list-items">
                   {projectsDisplayState.map((project) => (
-                    <li key={project._id} onClick={() => showIndividualProject(project._id)}>
+                    <a href={`/projects/${project._id}`}><li key={project._id} onClick={() => showIndividualProject(project._id)}>
                       <h4>Submitted: {new Date(project.submissionDate).toLocaleDateString()}</h4>
                       <h5>Title: {project.title ? project.title : 'N/A'}</h5>
                       <p>Description: {project.description}</p>
@@ -75,7 +73,7 @@ const Admin = () => {
                       <p>Man Hours: {project.manHours}</p>
                       <p>Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'N/A'}</p>
                       <p>End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : 'N/A'}</p>
-                    </li>
+                    </li></a>
                   ))}
                 </div>
               ) : (

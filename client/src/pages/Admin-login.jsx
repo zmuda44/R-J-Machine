@@ -96,7 +96,7 @@ const AdminLogin = () => {
 
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
-            <label>Enter your username</label>
+            <label>Enter Username</label>
             <input            
               className="form-input"
               placeholder="userName"
@@ -122,7 +122,9 @@ const AdminLogin = () => {
             </form> 
                
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </div>        
+        </div> 
+
+        <p>Username: admin Password: admin</p>       
 
       {}
 

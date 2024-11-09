@@ -4,6 +4,6 @@ const projectRoutes = require('./project-routes');
 
 
 router.use('/admin', adminRoutes);
-router.use('/projects', projectRoutes);
+router.use('/admin/projects', projectRoutes);
 
 module.exports = router;

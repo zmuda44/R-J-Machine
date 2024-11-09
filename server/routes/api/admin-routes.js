@@ -27,8 +27,9 @@ router.get('/', async (req, res) => {
 
 
 
-router.get('/:user', async (req, res) => {
+router.get('user/:user', async (req, res) => {
 
+  
 
     try {
       const user = await Admin.findOne({ userName: req.params.user });
