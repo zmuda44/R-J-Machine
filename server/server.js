@@ -3,15 +3,34 @@ const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
-// const session = require('express-session');
-
-
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+require('dotenv').config()
+// Added secret variable for sess object
+const sess = {
+  // secret: process.env.SESS_SECRET,
+  secret: 'fad@#DF332g32erwer',
+  cookie: {
+    maxAge: 60 * 60 * 1_000,
+    httpOnly: true,
+    secure: false,
+    sameSite: false,
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: 'mongodb://localhost:27017/r&j-machine'
+  })
+};
+
+app.use(session(sess));
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {

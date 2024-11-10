@@ -74,7 +74,9 @@ const AdminLogin = () => {
         setErrorMessage("Incorrect username or password. Please try again.");
       }
 
-      navigate(`/admin/${userFormState.userName}`, { state: { userName: userFormState.userName } });
+      navigate('/admin/user')
+
+      // navigate(`/admin/${userFormState.userName}`, { state: { userName: userFormState.userName } });
 
     } catch (e) {
       console.error(e);

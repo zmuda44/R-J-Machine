@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const { Admin } = require('../../models');
 
 
@@ -27,18 +26,19 @@ router.get('/', async (req, res) => {
 
 
 
-router.get('user/:user', async (req, res) => {
+router.get('/user', async (req, res) => { 
 
-  
-
+    console.log(req.session)
     try {
-      const user = await Admin.findOne({ userName: req.params.user });
+      const user = await Admin.findOne({ _id: req.session.user_id });
   
       // if (!user) {
       //   return res.status(400).json({ message: 'Something is wrong!' });
       // }
 
-      res.json({ user });
+      console.log(user)
+
+      res.json(user);
 
 
     } catch(err) {
@@ -48,11 +48,11 @@ router.get('user/:user', async (req, res) => {
   
 })
 
-router.post('/login', async ({ body }, res) => {
+router.post('/login', async (req, res) => {
 
   try {
-    const userName = body.userName;
-    const password = body.password;
+    const userName = req.body.userName;
+    const password = req.body.password;
 
     const adminData = await Admin.findOne({ userName } );
 
@@ -72,15 +72,19 @@ router.post('/login', async ({ body }, res) => {
       return;
     }
 
-    const responseData = {
-      id: adminData.id,
-      userName: adminData.userName,
-      // Include any other non-sensitive fields you want to return
-    };
+    // const responseData = {
+    //   id: adminData.id,
+    //   userName: adminData.userName,
+    //   // Include any other non-sensitive fields you want to return
+    // };
 
-    res.send(validPassword)
-      res.status(204).end();   
+    req.session.save(() => {
+      req.session.user_id = adminData.id;
+      req.session.logged_in = true;
 
+      res.status(204).end();
+      
+    });  
 
   } catch (error) {
     console.error('Failed to login.', error);

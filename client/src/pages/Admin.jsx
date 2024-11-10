@@ -4,12 +4,12 @@ import { useParams, useLocation } from "react-router-dom";
 
 const Admin = () => {
   // const { user } = useParams();
-  const location = useLocation();
+  // const location = useLocation();
 
-  const userName = location.state?.userName || "";
+  // const userName = location.state?.userName || "";
 
   const [userDisplayState, setUserDisplayState] = useState({
-    userName: userName
+    userName: ""
   });
 
   const [projectsDisplayState, setProjectsDisplayState] = useState([])
@@ -19,6 +19,35 @@ const Admin = () => {
   // });
 
   const [updateProjectDisplayState, setUpdateProjectDisplayState] = useState()
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+      const response = await fetch(`/api/admin/user`, {
+        headers: {
+          'Content-Type': 'application/json',
+        }          
+      })
+
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const userData = await response.json() 
+      
+      console.log(userData)
+
+      setUserDisplayState(userData);
+
+      
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+      getUserData();
+  }, []);
 
   useEffect(() => {
     const getProjectsData = async () => {
