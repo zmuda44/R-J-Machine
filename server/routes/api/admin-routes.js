@@ -12,6 +12,7 @@ const { Admin } = require('../../models');
 
 
 router.get('/', async (req, res) => {
+  console.log("get path for find all admin?")
   try {
     const users = await Admin.find(); // No 'where' clause, so it gets all records
     if (!users.length) {
@@ -27,8 +28,8 @@ router.get('/', async (req, res) => {
 
 
 router.get('/user', async (req, res) => { 
+console.log('get path for a single user')
 
-    console.log(req.session)
     try {
       const user = await Admin.findOne({ _id: req.session.user_id });
   
@@ -36,10 +37,7 @@ router.get('/user', async (req, res) => {
       //   return res.status(400).json({ message: 'Something is wrong!' });
       // }
 
-      console.log(user)
-
       res.json(user);
-
 
     } catch(err) {
       console.log(err)

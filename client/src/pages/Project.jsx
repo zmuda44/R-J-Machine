@@ -10,6 +10,7 @@ const Project = () => {
   const [originalState, setOriginalState] = useState({});
 
   const [projectDisplayState, setProjectDisplayState] = useState({
+    id: "",
     description: "",
     completionTimeMonths: "",
     completionTimeDays: "",
@@ -24,7 +25,7 @@ const Project = () => {
   useEffect(() => {
   const getProjectData = async () => {
       try {
-      const response = await fetch(`/api/projects/${projectId}`, {
+      const response = await fetch(`/api/admin/projects/${projectId}`, {
         headers: {
           'Content-Type': 'application/json',
         }          
@@ -39,6 +40,7 @@ const Project = () => {
       
 
       setProjectDisplayState({
+        id: projectData._id || "",
         description: projectData.description || "",
         completionTimeMonths: projectData.completionTimeMonths || "",
         completionTimeDays: projectData.completionTimeDays || "",
@@ -127,12 +129,13 @@ const Project = () => {
     }
   };
 
-  console.log(isEditing)
-  console.log(originalState)
+  console.log(projectDisplayState)
 
   return (
     <section id="admin">
       <div className="container">
+      {projectDisplayState.id ? (
+        <>
         <div id="project">
           <button onClick={() => handleFormEdit()}>
             {isEditing ? 'Cancel Edit' : 'Edit Project'}
@@ -302,6 +305,16 @@ const Project = () => {
           <button id="edit-project" onClick={handleFormSubmit}>Submit</button>
           <button id="edit-project">Delete</button>
         </div>
+
+
+
+
+
+        </>
+      ) : (
+          <h1>Administrator not logged in</h1>
+        )}
+
       </div>
           
     </section>

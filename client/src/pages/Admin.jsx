@@ -9,7 +9,7 @@ const Admin = () => {
   // const userName = location.state?.userName || "";
 
   const [userDisplayState, setUserDisplayState] = useState({
-    userName: ""
+    userName: "" 
   });
 
   const [projectsDisplayState, setProjectsDisplayState] = useState([])
@@ -36,13 +36,15 @@ const Admin = () => {
 
       const userData = await response.json() 
       
-      console.log(userData)
+      if (!userData) {
+        throw new Error('No user session available')
+      }
 
       setUserDisplayState(userData);
-
       
     } catch (err) {
       console.error(err);
+      // setUserDisplayState("");
     }
   };
 
@@ -80,6 +82,8 @@ const Admin = () => {
 
   }
 
+  console.log(userDisplayState.userName)
+
   return (
     <section id="admin">
       <div className="container">
@@ -94,7 +98,7 @@ const Admin = () => {
               {projectsDisplayState.length > 0 ? (
                 <div className="list-items">
                   {projectsDisplayState.map((project) => (
-                    <a href={`/projects/${project._id}`}><li key={project._id} onClick={() => showIndividualProject(project._id)}>
+                    <a href={`/admin/projects/${project._id}`}><li key={project._id} onClick={() => showIndividualProject(project._id)}>
                       <h4>Submitted: {new Date(project.submissionDate).toLocaleDateString()}</h4>
                       <h5>Title: {project.title ? project.title : 'N/A'}</h5>
                       <p>Description: {project.description}</p>

@@ -39,11 +39,11 @@ const router = createBrowserRouter([
         element: <AdminLogin />
       },
       {
-        path: 'admin/:user',
+        path: 'admin/user',
         element: <Admin />
       },
       {
-        path: 'projects/:projectId',
+        path: '/admin/projects/:projectId',
         element: <IndividualProject />
       },
       {
