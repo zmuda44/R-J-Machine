@@ -9,10 +9,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home'
 import Products from './pages/Products'
 import Services from './pages/Services'
-import ContactUs from './pages/ContactUs'
+import ContactUs from './pages/Contact-us'
 import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
 import IndividualProject from './pages/Project'
+import NotFound from './pages/Not-Found';
 
 
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,

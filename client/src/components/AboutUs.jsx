@@ -11,9 +11,9 @@ const AboutUs = () => {
         
         <h2>About Us</h2>
 
-        <div className="right">
+        <div className="content">
           <img src="./machineshop.jpg" />
-          <div className="right-text">
+          <div className="text">
           <p>In the world of a small business, you must remain competitive. 
           Our philosophy is that we will not stop working hard. Working hard to compete on price, quality and customer service. 
           We are a family-owned, machining and miscellaneous fabrication job shop, specializing in custom projects, parts and burners.</p>

@@ -23,9 +23,12 @@ const Navbar = () => {
                 <li className="nav-item"><a href="#estimates">Receive Estimate</a></li>
                 <li className="nav-item"><a href="#case-studies">Case Studies</a></li>
               </>
+            )}   
+            {window.location.pathname === '/contact-us' ? (
+                <li className="nav-item"><a href="/#estimates">Receive Estimate</a></li>
+            ) : (
+                <li className="nav-item"><a href="/contact-us">Contact Us</a></li>
             )}
-   
-            <li className="nav-item"><a href="/contact-us">Contact Us</a></li>
           </ul>        
         </div>
       </header>

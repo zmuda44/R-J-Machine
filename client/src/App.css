@@ -106,19 +106,13 @@ header a {
 
 } */
 
-#about-us .container .right {
+#about-us .container .content {
   display: flex;
   border-radius: 20px;
   padding: 10px;
 }
 
 #about-us .container img {
-  width: 30%;
-  border-radius: 10px;
-  margin-right: 50px;
-}
-
-#about-us .right-text {
   width: 30%;
   border-radius: 10px;
   margin-right: 50px;
