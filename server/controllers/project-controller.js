@@ -3,35 +3,45 @@ const { Project } = require('../models');
 module.exports = {
 
   async createEstimate({ body }, res) {
-    console.log("post path for create estimate")
-    const submittedDate = Date.now()
-    let startDate = ""
-    let endDate = ""    
-
-    if (body.startDate) {
-      const startDateString = body.startDate;
-      startDate = new Date(startDateString);    
-    }
-
-    if (body.endDate) {
-      const endDateString = body.endDate; 
-      endDate = new Date(endDateString);  
-    }
-
-    const estimateData = {
-      ...body,
-      submittedDate,
-      startDate,
-      endDate,
-    };
-
-    const estimate = await Project.create(body);
+    try {
+      console.log("post path for create estimate")
+      const submittedDate = Date.now()
+      let startDate = ""
+      let endDate = ""    
   
-    if (!estimate) {
-      return res.status(400).json({ message: 'Something is wrong!' });
+      if (body.startDate) {
+        const startDateString = body.startDate;
+        startDate = new Date(startDateString);    
+      }
+  
+      if (body.endDate) {
+        const endDateString = body.endDate; 
+        endDate = new Date(endDateString);  
+      }
+  
+      const estimateData = {
+        ...body,
+        submittedDate,
+        startDate,
+        endDate,
+      };
+  
+      const estimate = await Project.create(body);
+    
+      if (!estimate) {
+        return res.status(400).json({ message: 'Something is wrong!' });
+      }
+  
+      res.json({ estimate });
+      
+      
+      
+    } catch (err) {
+      console.log(err)
     }
+    
+    
 
-    res.json({ estimate });
   },
 
 

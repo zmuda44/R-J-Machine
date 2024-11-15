@@ -32,6 +32,7 @@ const projectSchema = new Schema ({
   },
   customerEmail: {
     type: String,
+    required: true,
   },
   customerPhone: {
     type: String,
