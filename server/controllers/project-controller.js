@@ -47,12 +47,9 @@ module.exports = {
 
 
 
-
+  // api/admin/projects
   async getProjects (req, res) {
-
     console.log("get path for all projects hit")
-
-
 
     const projects = await Project.find()
     

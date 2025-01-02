@@ -9,7 +9,7 @@ const {
 
 
 
-//'api/projects'
+//'api/admin/projects'
 
 // router.route('/').post(createAdminUser).put(authMiddleware, saveBook);
 router.route('/').get(getProjects)

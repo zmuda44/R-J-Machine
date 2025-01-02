@@ -1,14 +1,11 @@
 const AboutUs = () => {
   return (
     <section id="about-us">
-        <h1>Custom Fabrication, Custom Parts and Custom Project</h1>
-    <div className="about-us-content">
-    <div className="container">
-      {/* <div className="left">
-
-      </div> */}
-
-        
+       
+        <div className="about-us-content">
+      <div className="container">
+      <h1>Custom Fabrication, Custom Parts and Custom Project</h1>
+      
         <h2>About Us</h2>
 
         <div className="content">

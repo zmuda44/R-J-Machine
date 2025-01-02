@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 
-
+// /api/admin/user
 router.get('/user', async (req, res) => { 
 console.log('get path for a single user')
 
