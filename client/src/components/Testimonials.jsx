@@ -11,7 +11,7 @@ const testimonialsArray = [
   id: 2,
   name: "Floyd Richards",
   img: "/heashot random.jpg",
-  text: "asdfsadfasdfasdfsdffsdfa sdfsdfsadfsdsadfasdfasdfa sdfsdfasdfasdfasdfsadfasdfasdf"
+  text: "High quality work at a very affordable. Highly recommended."
   },
   {
   id: 3,
