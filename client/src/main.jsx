@@ -17,7 +17,7 @@ import ContactUs from './pages/Contact-us'
 import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
 import IndividualProject from './pages/Project'
-// import NotFound from './pages/Not-Found';
+import NotFound from './pages/Not-Found';
 
 
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -64,6 +64,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <RouterProvider router={router} />
 );
+
+ReactDOM.render(
+  // <React.StrictMode>
+      <BrowserRouter>
+          <Routes>              
+              <Route path="/products" element={<Products />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact-us" element={<ContactUs/>} />
+              <Route path="/" element={<Home/>} />
+          </Routes>
+      </BrowserRouter>
+  // </React.StrictMode>
+,document.getElementById('root'));
 
 // createRoot(document.getElementById('root')).render(
 //   <StrictMode>
