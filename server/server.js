@@ -34,9 +34,9 @@ const sess = {
 app.use(session(sess));
 
 // if we're in production, serve client/build as static assets
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/dist')));
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+}
 
 app.use(cors({
   origin: 'http://localhost:3000',  // Your frontend's origin
