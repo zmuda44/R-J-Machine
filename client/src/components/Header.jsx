@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const isHomePage = "true"
@@ -24,9 +24,13 @@ const Navbar = () => {
               </>
             )}   
             {window.location.pathname === '/contact-us' ? (
-                <li className="nav-item"><a href="/#estimates">Receive Estimate</a></li>
+     
+              <li className="nav-item"><a href="/#estimates">Receive Estimate</a></li>
+              
+     
+
             ) : (
-                <li className="nav-item"><a href="/contact-us">Contact Us</a></li>
+              <li><Link to="/contact-us">Contact-Us</Link></li>
             )}
           </ul>        
         </div>
@@ -41,6 +45,6 @@ const Navbar = () => {
 
 export default Navbar;
 
-
+{/* <li className="nav-item"><a href="/contact-us">Contact Us</a></li> */}
 {/* <li className="nav-item"><Link key={1} to="/products">Products</Link></li>
           <li className="nav-item"><Link key={2} to="/services">Services</Link></li> */}
