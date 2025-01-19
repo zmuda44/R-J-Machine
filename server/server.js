@@ -26,7 +26,7 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({
-    mongoUrl: MONGODB_URI ||'mongodb://localhost:27017/r&j-machine'
+    mongoUrl: process.env.MONGODB_URI ||'mongodb://localhost:27017/r&j-machine'
   })
 };
 
