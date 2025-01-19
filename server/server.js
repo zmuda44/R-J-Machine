@@ -27,15 +27,16 @@ const sess = {
   saveUninitialized: true,
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URI ||'mongodb://localhost:27017/r&j-machine'
+  // mongoUrl: 'mongodb://localhost:27017/r&j-machine'
   })
 };
 
 app.use(session(sess));
 
 // if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/dist')));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '../client/dist')));
+// }
 
 app.use(cors({
   origin: 'http://localhost:3000',  // Your frontend's origin
