@@ -18,7 +18,7 @@ import ContactUs from './pages/Contact-us'
 import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
 import IndividualProject from './pages/Project'
-import NotFound from './pages/Not-Found';
+// import NotFound from './pages/Not-Found';
 
 
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
+    // errorElement: <NotFound />,
     children: [
       {
         index: true,
