@@ -11,7 +11,6 @@ const {
 
 //'api/admin/projects'
 
-// router.route('/').post(createAdminUser).put(authMiddleware, saveBook);
 router.route('/').get(getProjects)
 
 router.route('/').post(createEstimate)

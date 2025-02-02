@@ -32,20 +32,12 @@ module.exports = {
         return res.status(400).json({ message: 'Something is wrong!' });
       }
   
-      res.json({ estimate });
-      
-      
+      res.json({ estimate });      
       
     } catch (err) {
       console.log(err)
     }
-    
-    
-
   },
-
-
-
 
   // api/admin/projects
   async getProjects (req, res) {
@@ -56,7 +48,6 @@ module.exports = {
     res.json(projects)
     
   },
-
 
 
   async getProject (req, res) {
@@ -74,13 +65,6 @@ module.exports = {
     catch (err) {
       console.log("no req.session found")
     }
-
-
-    // if (req.session.user_id) {
-    //   project = await Project.findOne({ _id: req.params.projectId})
-    // }    
-
-
     
   },
 
