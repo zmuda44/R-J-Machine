@@ -37,7 +37,7 @@ module.exports = {
   },
 
   // api/admin/login
-  async loginAdminUswer (req, res) {
+  async loginAdminUser (req, res) {
     try {
       const userName = req.body.userName;
       const password = req.body.password;

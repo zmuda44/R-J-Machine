@@ -4,19 +4,19 @@ const testimonialsArray = [
   {
   id: 1,
   name: "Greg Bailey",
-  img: "/heashot random.jpg",
+  img: "/istockphoto-508699681-612x612.jpg",
   text: "Great product and great service."
   },
   {
   id: 2,
   name: "Floyd Richards",
-  img: "/heashot random.jpg",
+  img: "/headshot-portrait-smiling-blue-collar-footage-208780525_iconl.webp",
   text: "High quality work at a very affordable. Highly recommended."
   },
   {
   id: 3,
   name: "Andrew McDonald",
-  img: "/heashot random.jpg",
+  img: "/Headshot_Smile_Normal.png",
   text: "We had a project that we needed done quickly. We called around to many different shops but couldn't find a product we liked on time."
   },
 ]

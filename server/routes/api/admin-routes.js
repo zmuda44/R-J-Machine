@@ -14,7 +14,7 @@ const {
 router.route('/').get(getAllAdminUsers)
 router.route('/user').get(getAdminUser)
 router.route('/login').post(loginAdminUser)
-router.router('/').post(createAdminUser)
+router.route('/').post(createAdminUser)
 
 
 
