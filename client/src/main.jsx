@@ -1,11 +1,6 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import { createRoot } from 'react-dom'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import { createBrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 
@@ -63,41 +58,3 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} /> // Provide the router to the application
 );
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <RouterProvider router={router} />
-// );
-
-// ReactDOM.render(
-//   // <React.StrictMode>
-//       <BrowserRouter>
-//           <Routes>              
-//               <Route path="/products" element={<Products />} />
-//               <Route path="/services" element={<Services />} />
-//               <Route path="/contact-us" element={<ContactUs/>} />
-//               <Route path="/" element={<Home/>} />
-//           </Routes>
-//       </BrowserRouter>
-//   // </React.StrictMode>
-// ,document.getElementById('root'));
-
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// root.render(
-//   <Router>
-//     <Routes>
-//       <Route path="/" element={<App />}>
-//         <Route index element={<Home />} /> {/* Default route */}
-//         <Route path="admin" element={<AdminLogin />} />
-//         <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
-//       </Route>
-//     </Routes>
-//   </Router>
-// );

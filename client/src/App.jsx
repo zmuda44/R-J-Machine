@@ -1,13 +1,10 @@
 
 import { useState } from 'react'
-
 import './App.css'
 import { Outlet } from 'react-router-dom';
-
 import Header from './components/Header';
 import AdminNavbar from './components/Admin-navbar'
 import Footer from './components/Footer';
-
 import { Link } from "react-router-dom";
 
 function App() {
