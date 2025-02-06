@@ -4,7 +4,7 @@
   * [Description](#description)
   * [Website](#website)
   * [Important Note](#note)
-  * [Upcoming functionality](#upcoming)
+  * [Upcoming Functionality](#upcoming)
   * [Questions](#questions)
   
   ## Description: 
@@ -14,7 +14,7 @@
   The username and password to the backend is found at the bottom of the admin page. This emulates an employee login.
 
   ## Upcoming:
-  Soon employees will have their custom login. Admin login will be for top level functions such as managing employees. Regular employee login will be able to perform CRUD operations on submitted projects, but admin login will have all of the functionality of a regular employee plus admin duties.
+  Soon employees will have their own custom login created from admin. Admin login will be for top level functions such as managing employees. Regular employee login will be able to perform CRUD operations on submitted projects, but admin login will have all of the functionality of a regular employee plus admin duties.
 
   ## Website:
   https://r-j-machine.onrender.com/
