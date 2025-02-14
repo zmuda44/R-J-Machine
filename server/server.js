@@ -33,6 +33,8 @@ const sess = {
 
 app.use(session(sess));
 
+app.use(routes);
+
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -47,8 +49,6 @@ app.use(cors({
   origin: 'http://localhost:3000',  // Your frontend's origin
   credentials: true, // Allow credentials if needed
 }));
-
-app.use(routes);
 
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
