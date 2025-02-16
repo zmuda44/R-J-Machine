@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Route } from 'react-router-dom';
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
+
   const [userFormState, setFormState] = useState({    
     // email: "",
     userName: "",
     password: "",
     // mainAdmin: "",
   });
-
-  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
