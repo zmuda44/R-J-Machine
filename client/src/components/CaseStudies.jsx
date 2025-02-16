@@ -42,35 +42,24 @@ const showNextBlock = () => {
 }
 
 
-  return (
+return (
 
     <section id="case-studies">
-    <div className="container">
-    <h2>Case Studies</h2>
-    <p>See below for details on some of our favorite projects.</p>
-
-      <div className="case-study-cards">
-      {caseStudyArray.map((study) => (
-       
-       <div key={study.id} className="card" style={{ translate: `${-100 * blockIndex}%` }}>        
-         <h2>{study.title}</h2>
-         <img src={study.img}/>
-         <p>{study.description}</p>
-       </div>
-
-     ))}
-
-
-
+      <div className="container">
+        <h2>Case Studies</h2>
+        <p>See below for details on some of our favorite projects.</p>
+        <div className="case-study-cards">
+        {caseStudyArray.map((study) => (       
+          <div key={study.id} className="card" style={{ translate: `${-100 * blockIndex}%` }}>        
+            <h2>{study.title}</h2>
+            <img src={study.img}/>
+            <p>{study.description}</p>
+          </div>
+        ))}
+        </div>
       </div>
-
-    </div>
-
-
-
     </section>
   )
 }
-
 
 export default CaseStudies;

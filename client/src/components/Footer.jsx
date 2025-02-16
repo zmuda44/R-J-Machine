@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
-
-
   return (
     <div className="page-top">
       <header>
@@ -17,16 +15,10 @@ const Footer = () => {
           </ul>        
         </div>
       </header>
-
-
     </div>
-
   )
 }
-
 
 export default Footer;
 
 
-{/* <li className="nav-item"><Link key={1} to="/products">Products</Link></li>
-          <li className="nav-item"><Link key={2} to="/services">Services</Link></li> */}

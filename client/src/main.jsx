@@ -4,18 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 
-
-
 import Home from './pages/Home'
-import Products from './pages/Products'
-import Services from './pages/Services'
 import ContactUs from './pages/Contact-us'
 import AdminLogin from './pages/Admin-login'
 import Admin from './pages/Admin'
 import IndividualProject from './pages/Project'
 // import NotFound from './pages/Not-Found';
-
-
 
 const router = createBrowserRouter([
   {
@@ -26,14 +20,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      },
-      {
-        path: '/products',
-        element: <Products />
-      },
-      {
-        path: '/services',
-        element: <Services />
       },
       {
         path: '/admin',

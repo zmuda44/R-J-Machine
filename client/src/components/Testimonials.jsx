@@ -22,11 +22,8 @@ const testimonialsArray = [
 ]
 
 
-function TestimonialBlock ({ name, img, text, style }) {
-  
+function TestimonialBlock ({ name, img, text, style }) {  
   return (
-   
-
     <div className="block" style={ style } >  
       <img src={img}/>      
       <h3>{name}</h3>            
@@ -35,12 +32,7 @@ function TestimonialBlock ({ name, img, text, style }) {
   )
 }
 
-
-
-
 const Testimonials = () => {
-  
-
 
 const [blockIndex, setBlockIndex] = useState(0)
 
@@ -53,14 +45,11 @@ const showPrevBlock = () => {
 }
 
 const showNextBlock = () => {
-console.log("clicked")
   setBlockIndex(index => {
     if (index === testimonialsArray.length-1) return 0
     return index + 1
   })
 }
-
-console.log(blockIndex)
 
 return (
   <section id="testimonials">
@@ -96,6 +85,5 @@ return (
   </section>
 );
 }
-
 
 export default Testimonials;

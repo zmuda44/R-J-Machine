@@ -2,7 +2,7 @@ const { Admin } = require('../models');
 
 module.exports = {
 
-  //api/admin
+  // GET api/admin
   async getAllAdminUsers (req, res)  {
     console.log("get path for find all admin?")
     try {
@@ -18,16 +18,16 @@ module.exports = {
   },
 
 
-  // /api/admin/user
+  // GET /api/admin/user
   async getAdminUser(req, res) { 
   console.log('get path for a single user')
 
       try {
         const user = await Admin.findOne({ _id: req.session.user_id });
     
-        // if (!user) {
-        //   return res.status(400).json({ message: 'Something is wrong!' });
-        // }
+        if (!user) {
+          res.status(400).json({ message: 'Something is wrong!' });
+        }
 
         res.json(user);
 
@@ -36,16 +36,15 @@ module.exports = {
       }  
   },
 
-  // api/admin/login
+  // POST api/admin/login
   async loginAdminUser (req, res) {
     try {
       const userName = req.body.userName;
       const password = req.body.password;
 
-      const adminData = await Admin.findOne({ userName } );
+      const adminData = await Admin.findOne({ userName });
 
-      if (!adminData) {
-            
+      if (!adminData) {            
         res.status(400).json({ message: 'Incorrect username or password, please try again' });
         return
       }
@@ -60,18 +59,10 @@ module.exports = {
         return;
       }
 
-      // const responseData = {
-      //   id: adminData.id,
-      //   userName: adminData.userName,
-      //   // Include any other non-sensitive fields you want to return
-      // };
-
       req.session.save(() => {
         req.session.user_id = adminData.id;
         req.session.logged_in = true;
-
-        res.status(204).end();
-        
+        res.status(204).end();        
       });  
 
     } catch (error) {
@@ -79,25 +70,25 @@ module.exports = {
     }
   },
 
-  // api/admin
+  // POST api/admin
   async createAdminUser ({ body }, res) {
-  try {
-    const { userName, email, password } = body;
+    try {
+      const { userName, email, password } = body;
 
-  // Create the user with the provided username, email, and password
-    const admin = await Admin.create({ userName: userName, email: email, password: password });
-    // If user creation fails, throw an error
-    if (!admin) {
-      throw new Error('Something is wrong!');
+    // Create the user with the provided username, email, and password
+      const admin = await Admin.create({ userName: userName, email: email, password: password });
+      // If user creation fails, throw an error
+      if (!admin) {
+        throw new Error('Something is wrong!');
+      }
+
+      res.send(admin)
+
+    } catch (error) {
+      console.error(error);
+      // Return a specific error message in case of failure
+      throw new Error('Failed to create user');
     }
-
-    res.send(admin)
-
-  } catch (error) {
-    console.error(error);
-    // Return a specific error message in case of failure
-    throw new Error('Failed to create user');
-  }
   }
 
 }

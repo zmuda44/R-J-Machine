@@ -3,10 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 
 const Admin = () => {
-  // const { user } = useParams();
-  // const location = useLocation();
-
-  // const userName = location.state?.userName || "";
 
   const [userDisplayState, setUserDisplayState] = useState({
     userName: "" 
@@ -23,66 +19,60 @@ const Admin = () => {
   useEffect(() => {
     const getUserData = async () => {
       try {
-      const response = await fetch(`/api/admin/user`, {
-        headers: {
-          'Content-Type': 'application/json',
-        }          
-      })
+        const response = await fetch(`/api/admin/user`, {
+          headers: {
+            'Content-Type': 'application/json',
+          }          
+        })
 
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
 
-      const userData = await response.json() 
+        const userData = await response.json() 
       
-      if (!userData) {
-        throw new Error('No user session available')
-      }
+        if (!userData) {
+          throw new Error('No user session available')
+        }
 
-      setUserDisplayState(userData);
+        setUserDisplayState(userData);
       
-    } catch (err) {
+      } catch (err) {
       console.error(err);
       // setUserDisplayState("");
-    }
-  };
-
-      getUserData();
+      }
+    };
+    getUserData();
   }, []);
 
   useEffect(() => {
     const getProjectsData = async () => {
       try {
-      const response = await fetch(`/api/admin/projects`, {
-        headers: {
-          'Content-Type': 'application/json',
-        }          
-      })
+        const response = await fetch(`/api/admin/projects`, {
+          headers: {
+            'Content-Type': 'application/json',
+          }          
+        })
 
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+        const projectData = await response.json()      
 
-      const projectData = await response.json()      
-
-      setProjectsDisplayState(projectData);
+        setProjectsDisplayState(projectData);
 
       
-    } catch (err) {
+      } catch (err) {
       console.error(err);
-    }
+      }
   };
-
       getProjectsData();
   }, []);
 
   function showIndividualProject (projectId) {
-
   }
-
-  console.log(userDisplayState.userName)
 
   return (
     <section id="admin">
@@ -122,72 +112,4 @@ const Admin = () => {
   );
 }
 
-
 export default Admin
-
-{/* <button onclick={window.location.replace(`/projects/${userFormState.userName}`);}>edit project</button> */}
-
-{/* <label>Enter your email</label>
-<input            
-  className="form-input"
-  placeholder="email"
-  name="email"
-  type="text"
-  value={}
-  onChange={}
-/>  */}
-
-
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormState({
-  //     ...userFormState,
-  //     [name]: value,
-  //   });
-  // };
-
-  
-  // const handleFormSubmit = async (event) => {
-
-  //   event.preventDefault();
-  //   try {
-  //     const response = await fetch('/api/admin', {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify(userFormState),
-  //     });
-  //     console.log(response)
-  //    window.location.replace(`api/admin/${userFormState.email}`);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
-
-
-   {/* <form onSubmit={handleFormSubmit}>
-
-          <div className="" id="admin-login">
-            <p>Enter your email</p>
-            <input            
-              className="form-input"
-              placeholder="email"
-              name="email"
-              type="text"
-              value={userFormState.email}
-              onChange={handleChange}
-            />   
-
-              <input
-              className="form-input"
-              placeholder="password"
-              name="password"
-              type="text"
-              value={userFormState.password}
-              onChange={handleChange}
-            />      
-          </div>        
-
-        <button type="submit">Submit</button>
-        </form> */}
