@@ -1,6 +1,20 @@
+import bgImage from '../../public/Closeup of CNC machine with sparks-1.webp';
+
+
+
 const AboutUs = () => {
+
+  //backgroundImage filepath in CSS file doesn't render properly
+  const setionStyle = {
+  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgImage})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  textAlign: 'center',
+  padding: '100px 0',
+};
+
   return (
-    <section id="about-us">
+    <section id="about-us" style={setionStyle}>
        
       <div className="about-us-content">
         <div className="container">

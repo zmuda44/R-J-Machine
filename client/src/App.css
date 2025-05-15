@@ -66,16 +66,6 @@ header a {
 }
 
 /* Begin about us section */
- #about-us {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Closeup of CNC machine with sparks-1.webp');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  padding: 100px 0;
- }
-
-
-
 #about-us h1,
 #about-us h2, 
 #about-us h3 {
