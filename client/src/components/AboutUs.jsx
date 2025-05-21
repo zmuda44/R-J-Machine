@@ -6,7 +6,7 @@ const AboutUs = () => {
 
   //backgroundImage filepath in CSS file doesn't render properly
   const setionStyle = {
-  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgImage})`,
+  backgroundImage: `linear-gradient(-45deg, rgba(3, 50, 101, 0.5), rgba(0, 174, 255, 0.2)), url(${bgImage})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   textAlign: 'center',
