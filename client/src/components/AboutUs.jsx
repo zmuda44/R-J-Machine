@@ -14,8 +14,7 @@ const AboutUs = () => {
 };
 
   return (
-    <section id="about-us" style={setionStyle}>
-       
+    <section id="about-us" style={setionStyle}>       
       <div className="about-us-content">
         <div className="container">
           <h1>Custom Fabrication, Custom Parts and Custom Project</h1>      
