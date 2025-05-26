@@ -322,6 +322,80 @@ header {
   font-size: .2rem;
 }
 
+header .container {
+  justify-content: left;
+}
+
+header .navbar {
+  width: 50%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+header .nav-items {
+  display: none;
+}
+
+header .is-active {
+  z-index: 100; 
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+
+header .hamburger {
+  padding: 20px;
+  background-color: lightblue;
+  border: solid darkblue;
+  border-radius: 20px;
+}
+
+header .hamburger span {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 7px;  
+  background-color: darkblue;  
+}
+
+header .hamburger span::before,
+header .hamburger span::after {
+  content: '';
+  position: absolute;  
+  width: 30px;
+  height: 7px;
+  background: darkblue;
+}
+
+header .hamburger span::before {
+  transform: translateY(-150%);
+}
+
+header .hamburger span::after {
+  transform: translateY(150%);
+}
+
+header .hamburger .span-active {  
+  background-color: transparent;
+}
+
+header .hamburger .span-active::before {  
+  transform: rotate(45deg);
+  opacity: 100%
+}
+
+header .hamburger .span-active::before {  
+  transform: rotate(45deg)
+}
+
+header .hamburger .span-active::after {  
+  transform: rotate(-45deg)
+}
+
 #about-us img {
   display: none;
 }
