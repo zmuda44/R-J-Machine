@@ -339,13 +339,15 @@ header .nav-items {
 
 header .is-active {
   z-index: 100; 
-  width: 100vw;
+  width: 100%;
+  top: 200px;
+  left: 0;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
 }
-
-
 
 header .hamburger {
   padding: 20px;
