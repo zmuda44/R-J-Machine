@@ -1,4 +1,4 @@
-  # R & J Machine Shop test
+  # R & J Machine Shop
 
   ## Table of Contents
   * [Description](#description)
